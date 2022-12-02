@@ -29,10 +29,26 @@ const Registro = (setUsers) => {
     resolver: yupResolver(formSchema),
   });
 
-  function onSubmitFunction(data) {
-    setUsers(data);
-  }
-  
+  const onSubmitFunction = (data) => {
+    if (data.name) {
+      axios
+        .post("https://localhost:3000", {
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          confirmPassword: data.confirmPassword,
+        })
+        .then((response) => {
+          console.log(response);
+          if (response.status === 201) {
+            setTimeout(() => history.push(`/login`), 1000);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   return (
     <div className="container-registro">
@@ -49,6 +65,7 @@ const Registro = (setUsers) => {
           placeholder="Nome"
           {...register("name")}
         ></input>
+        <p className="error-register">{errors.name?.message} </p>
 
         <label className="label-input-registro">Email</label>
         <input
@@ -58,6 +75,7 @@ const Registro = (setUsers) => {
           placeholder="Email"
           {...register("email")}
         ></input>
+        <p className="error-register">{errors.email?.message} </p>
 
         <label className="label-input-registro">Password</label>
         <input
@@ -67,6 +85,7 @@ const Registro = (setUsers) => {
           placeholder="Password"
           {...register("password")}
         ></input>
+        <p className="error-register">{errors.password?.message} </p>
 
         <label className="label-input-registro">Confirm password</label>
         <input
@@ -76,6 +95,7 @@ const Registro = (setUsers) => {
           placeholder="Confirm Password"
           {...register("confirmPassword")}
         ></input>
+        <p className="error-register">{errors.confirmPassword?.message} </p>
 
         <div className="button-container">
           <button className="button-registro" type="submit">
