@@ -1,0 +1,57 @@
+.container-login {
+    background-color: rgb(55, 76, 111);
+    display: flex;
+    flex-direction: column;
+    height: 470px;
+    width: 400px;
+    border-radius: 2px;
+  }
+  
+  .title-login {
+    font-size: 30px;
+  }
+  
+  .form-login {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label-login {
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
+  
+  .input-login {
+    height: 23px;
+    width: 330px;
+    margin-left: 28px;
+    background-color: azure;
+  }
+  
+  .button-login-join {
+    margin-top: 30px;
+    background-color: rgb(22, 30, 41);
+    color: white;
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+  
+  .text-login {
+      font-size: 22px;
+      font-weight: 300;
+  }
+  
+  .button-login-register {
+    background-color: rgb(22, 30, 41);
+    color: white;
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+  
