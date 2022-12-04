@@ -1,23 +1,23 @@
 import express from "express";
-import userRoutes from "./routers/user.routes";
-import loginRoutes from "./routers/login.routes";
 import "dotenv.config";
 import { startDatabase } from "./src/database";
 
-const path = require();
-const express = require("express");
-const port = 3000;
+import clientesRoutes from "./src/routers/clientes.routes";
+import contatosRoutes from "./src/routers/contatos.routes";
 
 const app = express();
 
 app.use(express.json());
-app.use("/users", userRoutes);
-app.use("/login", loginRoutes);
+const express = require("express");
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
+app.use("/clientes", clientesRoutes);
+app.use("/contatos", contatosRoutes);
 
-module.exports = app.listen(port, () => {
-  console.log(`App rodando na porta ${port}`);
+//app.get("/api", (req, res) => {
+//res.json({ message: "Hello from server!" });
+//});
+
+export default app.listen(process.env.PORT || 3000, () => {
+  startDatabase();
+  console.log("Server running");
 });

@@ -26,3 +26,7 @@ Estando no terminal e dentro do caminho correto, você deverá utilizar o seguin
 caso seja necessário um log mais completo, utilize o comando:
 
     yarn test --all
+
+
+--
+Abrir o terminal na pasta client e utilizar o comando "yarn start" para iniciar a aplicação;
